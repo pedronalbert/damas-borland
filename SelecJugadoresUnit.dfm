@@ -1,6 +1,6 @@
 object SelecJugadoresForm: TSelecJugadoresForm
-  Left = 300
-  Top = 200
+  Left = 0
+  Top = 0
   BorderStyle = bsSingle
   Caption = 'Damas - Seleccionar Jugadores'
   ClientHeight = 573

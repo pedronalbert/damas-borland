@@ -144,6 +144,7 @@ void __fastcall TJuegoForm::PaintBox1MouseUp(TObject *Sender,
   int clickJ = this->corsPantallaToJuegoCors(X);
   int clickI = this->corsPantallaToJuegoCors(Y);
   int idFichaClicked = this->matrizFichas[clickI][clickJ];
+  this->actualizarPantalla();
 
   if (this->activo) {
     if (this->fichaSeleccionada) {
@@ -235,26 +236,27 @@ bool TJuegoForm::moverFichaSeleccionada(int movi, int movj) {
   }
 
   if (diffI == 2) {
-    int fichaContrariaCors[2];
+    int fichaContrariaCorsI;
+    int fichaContrariaCorsJ;
 
     if (movi < this->fichaSeleccionadaCorsI) {
-      fichaContrariaCors[0] = movi + 1;
+      fichaContrariaCorsI = movi + 1;
     } else {
-      fichaContrariaCors[0] = movi - 1;
+      fichaContrariaCorsI = movi - 1;
     }
 
     if(movj > this->fichaSeleccionadaCorsJ) {
-      fichaContrariaCors[1] = movj - 1;
+      fichaContrariaCorsJ = movj - 1;
     } else {
-      fichaContrariaCors[1] = movj + 1;
+      fichaContrariaCorsJ = movj + 1;
     }
 
     //Chequiamos que la ficha contraria exista
-    int idFichaContraria = this->matrizFichas[fichaContrariaCors[0]][fichaContrariaCors[1]];
+    int idFichaContraria = this->matrizFichas[fichaContrariaCorsI][fichaContrariaCorsJ];
 
     if(idFichaContraria != 0 && this->idFichaPerteneceAlJugadorActual(idFichaContraria) == false) {
       //Eliminamos la ficha muerta
-      this->eliminarFicha(fichaContrariaCors[0], fichaContrariaCors[1]);
+      this->eliminarFicha(fichaContrariaCorsI, fichaContrariaCorsJ);
       //Le descontamos la ficha al otro jugador
       if (this->turnoJugador == 1) {
         this->nFichasJugador2--;
@@ -322,14 +324,6 @@ void TJuegoForm::declararVictoria(int jugador) {
   InitButton->Show();
 }
 
-AnsiString TJuegoForm::getNombreJugador(int jugador) {
-  //TODO: Nombre del jugador
-  if (jugador == 1) {
-    return HomeForm->jugadores[this->idJugador1].nick;
-  } else {
-    return HomeForm->jugadores[this->idJugador2].nick;
-  }
-}
 
 void TJuegoForm::setJugadoresIds(int idJugador1, int idJugador2) {
   this->idJugador1 = idJugador1;

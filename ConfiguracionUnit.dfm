@@ -1,6 +1,6 @@
 object ConfiguracionForm: TConfiguracionForm
-  Left = 300
-  Top = 200
+  Left = 0
+  Top = 0
   BorderStyle = bsSingle
   Caption = 'Damas - Configuraci'#243'n'
   ClientHeight = 573

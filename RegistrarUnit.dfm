@@ -1,6 +1,6 @@
 object RegistrarForm: TRegistrarForm
-  Left = 300
-  Top = 200
+  Left = 0
+  Top = 0
   BorderStyle = bsSingle
   Caption = 'Damas - Registrar Nuevo Jugador'
   ClientHeight = 573

@@ -31,6 +31,11 @@ void __fastcall TConfiguracionForm::ComboBox1Change(TObject *Sender)
 {
   int id = ComboBox1->ItemIndex;
 
+  if (id == HomeForm->idImagenFicha2) {
+    ComboBox1->ItemIndex = HomeForm->idImagenFicha1;
+    return;
+  }
+  
   if (id >= 0) {
     HomeForm->idImagenFicha1 = id;
   }
@@ -39,6 +44,11 @@ void __fastcall TConfiguracionForm::ComboBox1Change(TObject *Sender)
 void __fastcall TConfiguracionForm::ComboBox2Change(TObject *Sender)
 {
   int id = ComboBox2->ItemIndex;
+
+  if (id == HomeForm->idImagenFicha1) {
+    ComboBox2->ItemIndex = HomeForm->idImagenFicha2;
+    return;
+  }
 
   if (id >= 0) {
     HomeForm->idImagenFicha2 = id;
@@ -49,6 +59,11 @@ void __fastcall TConfiguracionForm::ComboBox3Change(TObject *Sender)
 {
   int id = ComboBox3->ItemIndex;
 
+  if (id == HomeForm->idImagenCelda2) {
+    ComboBox3->ItemIndex = HomeForm->idImagenCelda1;
+    return;
+  }
+
   if (id >= 0) {
     HomeForm->idImagenCelda1 = id;
   }
@@ -57,6 +72,11 @@ void __fastcall TConfiguracionForm::ComboBox3Change(TObject *Sender)
 void __fastcall TConfiguracionForm::ComboBox4Change(TObject *Sender)
 {
   int id = ComboBox4->ItemIndex;
+
+  if (id == HomeForm->idImagenCelda1) {
+    ComboBox4->ItemIndex = HomeForm->idImagenCelda2;
+    return;
+  }
 
   if (id >= 0) {
     HomeForm->idImagenCelda2 = id;
